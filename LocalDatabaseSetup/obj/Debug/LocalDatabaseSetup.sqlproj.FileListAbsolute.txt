@@ -1,0 +1,6 @@
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\Property and Supply Management\LocalDatabaseSetup\bin\Debug\LocalDatabaseSetup.dacpac
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\Property and Supply Management\LocalDatabaseSetup\bin\Debug\LocalDatabaseSetup.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\Property and Supply Management\LocalDatabaseSetup\bin\Debug\LocalDatabaseSetup.pdb
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\Property and Supply Management\LocalDatabaseSetup\obj\Debug\LocalDatabaseSetup.sqlproj.AssemblyReference.cache
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\Property and Supply Management\LocalDatabaseSetup\obj\Debug\LocalDatabaseSetup.dll
+C:\Users\Ezekiel\OneDrive\Desktop\AlmondProjects\Property and Supply Management\LocalDatabaseSetup\obj\Debug\LocalDatabaseSetup.pdb
