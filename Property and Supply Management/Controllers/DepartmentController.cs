@@ -34,7 +34,8 @@ namespace Property_and_Supply_Management.Controllers
 					items_in_possesion = department.items_in_possesion.Select(item => new ItemDetailsResponse
 					{
 						asset_name = item.asset_name,
-						item_type = item.item_type.ToString(),
+						Quantity = item.Quantity,
+						Amount = item.Amount,
 						purchase_date = item.purchase_date.ToShortDateString(),
 						maintenance_date = item.maintenance_date.ToString(),
 						AssignedTo = item.AssignedTo.ToString(),

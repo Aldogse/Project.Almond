@@ -40,7 +40,8 @@ namespace Property_and_Supply_Management.Controllers
 				{
 					id = item.id,
 					asset_name = item.asset_name,
-					item_type = item.item_type.ToString(),
+					Amount = item.Amount,
+					Quantity = item.Quantity,
 					purchase_date = item.purchase_date.ToShortDateString(),
 					maintenance_date = item.maintenance_date.ToString(),
 					AssignedTo = item.Department.department_name,
@@ -115,7 +116,8 @@ namespace Property_and_Supply_Management.Controllers
 				var request = new Item()
 				{
 					asset_name = itemRequest.asset_name,
-					item_type = itemRequest.item_type,
+					Amount = itemRequest.Amount,
+					Quantity = itemRequest.Quantity,
 					purchase_date = itemRequest.purchase_date,
 					maintenance_date = itemRequest.maintenance_date,
 					AssignedTo = itemRequest.AssignedTo,
@@ -153,7 +155,8 @@ namespace Property_and_Supply_Management.Controllers
 				item_to_update.AssignedTo = updateItemRequest.AssignedTo;
 				item_to_update.maintenance_date = updateItemRequest.maintenance_date;
 				item_to_update.LastMaintenanceDate = updateItemRequest.LastMaintenanceDate;
-				item_to_update.item_type = updateItemRequest.item_type;
+				item_to_update.Amount = updateItemRequest.Amount;
+				item_to_update.Quantity = updateItemRequest.Quantity;
 				item_to_update.User = updateItemRequest.User;
 
 				 _pAS_DBContext.Items.Update(item_to_update);

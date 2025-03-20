@@ -12,8 +12,9 @@ namespace Contracts_and_Models.Request
 	public  class UpdateItemRequest
 	{
 		public string asset_name { get; set; }
-		public ItemType item_type { get; set; }
-		public DateTime purchase_date { get; set; }
+        public int Amount { get; set; }
+        public int Quantity { get; set; }
+        public DateTime purchase_date { get; set; }
 		public DateTime? maintenance_date { get; set; }
 		public int? AssignedTo { get; set; }
 		public ItemUser? User { get; set; }

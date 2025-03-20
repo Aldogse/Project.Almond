@@ -14,8 +14,8 @@ namespace Contracts_and_Models.Models
 		[Key]
 		public int id {  get; set; }
 		public string asset_name { get; set; }
-		public ItemType item_type { get; set; }
-		public DateTime purchase_date { get; set; }
+        public int Quantity { get; set; }
+        public DateTime purchase_date { get; set; }
 		public DateTime? maintenance_date { get; set; }
 		[ForeignKey("Department")]
 		public int? AssignedTo { get; set; }
@@ -23,6 +23,6 @@ namespace Contracts_and_Models.Models
 		public ItemUser? User { get; set; }
 		public Status Status { get; set; }
 		public DateTime? LastMaintenanceDate { get; set; }
-
-	}
+        public int Amount { get; set; }
+    }
 }

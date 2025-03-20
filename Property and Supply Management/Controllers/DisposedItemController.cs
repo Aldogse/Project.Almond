@@ -36,5 +36,30 @@ namespace Property_and_Supply_Management.Controllers
 				return StatusCode(500,$"Server error: {ex.Message}");
 			}
 		}
+		[HttpDelete("delete-records/{disposal_id}")]
+		public async Task <IActionResult> DeleteItemRecords(int disposal_id)
+		{
+			if(disposal_id <= 0)
+			{
+				return BadRequest("Invalid Disposal ID");
+			}
+			try
+			{
+				var item_to_delete = await _disposedItemRepository.GetDisposedItemByIdAsync(disposal_id);
+
+				if(item_to_delete == null)
+				{
+					return NotFound();
+				}
+
+				_pAS_DBContext.Remove(item_to_delete);
+				await _pAS_DBContext.SaveChangesAsync();
+				return Ok("Item Deleted from hospital records");
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500,ex.Message);
+			}
+		}
     }
 }

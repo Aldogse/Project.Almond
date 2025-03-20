@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Property_and_Supply_Management.Database;
 
@@ -11,9 +12,10 @@ using Property_and_Supply_Management.Database;
 namespace Property_and_Supply_Management.Migrations
 {
     [DbContext(typeof(PAS_DBContext))]
-    partial class PAS_DBContextModelSnapshot : ModelSnapshot
+    [Migration("20250320105556_add_quantity_and_amount")]
+    partial class add_quantity_and_amount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

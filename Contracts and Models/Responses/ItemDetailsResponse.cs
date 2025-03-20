@@ -11,8 +11,9 @@ namespace Contracts_and_Models.Responses
 	{
 		public int id { get; set; }
 		public string asset_name { get; set; }
-		public string item_type { get; set; }
-		public string purchase_date { get; set; }
+        public int Quantity { get; set; }
+        public int Amount { get; set; }
+        public string purchase_date { get; set; }
 		public string? maintenance_date { get; set; }
 		public string? AssignedTo { get; set; }
 		public string? User { get; set; }

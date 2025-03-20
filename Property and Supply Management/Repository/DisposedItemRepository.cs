@@ -13,7 +13,14 @@ namespace Property_and_Supply_Management.Repository
         {
 			_pAS_DBContext = pAS_DBContext;
 		}
-        public async Task<List<DisposedItem>> GetDisposedItemsAsync()
+
+		public async Task<DisposedItem> GetDisposedItemByIdAsync(int id)
+		{
+			var item =  await _pAS_DBContext.DisposedItems.Where(item => item.disposal_id == id).FirstOrDefaultAsync();
+			return item;
+		}
+
+		public async Task<List<DisposedItem>> GetDisposedItemsAsync()
 		{
 			var response = await _pAS_DBContext.DisposedItems.ToListAsync();
 			return response;

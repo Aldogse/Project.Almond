@@ -14,9 +14,10 @@ namespace Contracts_and_Models.Request
 	{
 		[Required(ErrorMessage = "Name is required")]
 		public string asset_name { get; set; }
-		[Required(ErrorMessage = "Item Type is required")]
-		public ItemType item_type { get; set; }
-		[Required(ErrorMessage = "Purchase date is required")]
+        [Required(ErrorMessage = "Item Type is required")]
+        public int Amount { get; set; }
+        public int Quantity { get; set; }
+        [Required(ErrorMessage = "Purchase date is required")]
 		public DateTime purchase_date { get; set; }
 		public DateTime? maintenance_date { get; set; }
 		public int? AssignedTo { get; set; }
