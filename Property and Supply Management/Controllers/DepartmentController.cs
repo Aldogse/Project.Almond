@@ -29,6 +29,7 @@ namespace Property_and_Supply_Management.Controllers
 
 				var response = departments.Select(department => new DepartmentDetailsResponse
 				{
+					department_id = department.Id,
 					department_name = department.department_name,
 					contact_person_email = department.contact_person_email,
 					items_in_possesion = department.items_in_possesion.Select(item => new ItemDetailsResponse
@@ -44,6 +45,43 @@ namespace Property_and_Supply_Management.Controllers
 					}).ToList(),
 				}).ToList();
 
+				return Ok(response);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, ex.Message);
+			}
+		}
+
+		[HttpGet("get-department/{id}")]
+		public async Task <IActionResult> GetDepartment( int id)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			try
+			{
+				var department = await _departmentRepository.GetDepartmentByIdAsync(id);
+
+				var response = new DepartmentDetailsResponse
+				{
+					department_id = department.Id,
+					department_name = department.department_name,
+					contact_person_email = department.contact_person_email,
+					items_in_possesion = department.items_in_possesion.Select(item => new ItemDetailsResponse
+					{
+						id = item.id,
+						asset_name = item.asset_name,
+						AssignedTo = item.Department.department_name,
+						User = item.User.ToString(),
+						Status= item.Status.ToString(),
+						Quantity = item.Quantity,
+						Amount = item.Amount,
+						purchase_date = item.purchase_date.ToShortDateString(),
+						maintenance_date = item.maintenance_date.ToString(),
+					}).ToList(),
+				};
 				return Ok(response);
 			}
 			catch (Exception ex)

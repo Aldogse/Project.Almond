@@ -20,5 +20,6 @@ namespace Contracts_and_Models.Models
 		public DateTime? end_date { get; set; }
 		public string reason { get; set; }
 		public MaintenanceStatus Status { get; set; }
-    }
+		public bool IsNotified { get; set; }
+	}
 }

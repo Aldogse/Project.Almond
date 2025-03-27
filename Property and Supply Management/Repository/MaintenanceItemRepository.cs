@@ -41,5 +41,10 @@ namespace Property_and_Supply_Management.Repository
 		{
 			return _pAS_DBContext.MaintenanceItems.Include(i => i.Item).Include(i => i.Item).ToListAsync();
 		}
+
+		public async Task<List<MaintenanceItem>> Get_Non_notifiedItemAsync()
+		{
+			return await _pAS_DBContext.MaintenanceItems.Include(d => d.Item).Where(n => n.IsNotified == false).ToListAsync();
+		}
 	}
 }

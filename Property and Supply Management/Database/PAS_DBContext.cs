@@ -13,7 +13,10 @@ namespace Property_and_Supply_Management.Database
 		public DbSet<DisposedItem> DisposedItems { get; set; }
 		public DbSet<Item> Items { get; set; }
 		public DbSet<MaintenanceItem> MaintenanceItems { get; set; }
-
+		
+		public DbSet<EmergencyMedication> EmergencyMedications { get; set; }
+		public DbSet<ExpiredMedicine> ExpiredMedicines { get; set; }
+		public DbSet<DisposedMedication> DisposedMedications { get; set; }
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);

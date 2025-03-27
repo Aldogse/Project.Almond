@@ -131,6 +131,95 @@ namespace Property_and_Supply_Management.Migrations
                     b.ToTable("DisposedItems");
                 });
 
+            modelBuilder.Entity("Contracts_and_Models.Models.DisposedMedication", b =>
+                {
+                    b.Property<int>("disposal_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("disposal_id"), 1L, 1);
+
+                    b.Property<string>("MedicationName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MedicationType")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("NotifiedByEmail")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("medicineDisposalType")
+                        .HasColumnType("int");
+
+                    b.HasKey("disposal_id");
+
+                    b.ToTable("DisposedMedications");
+                });
+
+            modelBuilder.Entity("Contracts_and_Models.Models.EmergencyMedication", b =>
+                {
+                    b.Property<int>("drug_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("drug_id"), 1L, 1);
+
+                    b.Property<DateTime>("ExpirationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MedicationName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MedicationType")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("department_id")
+                        .HasColumnType("int");
+
+                    b.HasKey("drug_id");
+
+                    b.HasIndex("department_id");
+
+                    b.ToTable("EmergencyMedications");
+                });
+
+            modelBuilder.Entity("Contracts_and_Models.Models.ExpiredMedicine", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("ExpirationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MedicationName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MedicationType")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("disposalMethod")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ExpiredMedicines");
+                });
+
             modelBuilder.Entity("Contracts_and_Models.Models.Item", b =>
                 {
                     b.Property<int>("id")
@@ -182,6 +271,9 @@ namespace Property_and_Supply_Management.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("maintenance_Id"), 1L, 1);
 
+                    b.Property<bool>("IsNotified")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -203,6 +295,17 @@ namespace Property_and_Supply_Management.Migrations
                     b.HasIndex("item_id");
 
                     b.ToTable("MaintenanceItems");
+                });
+
+            modelBuilder.Entity("Contracts_and_Models.Models.EmergencyMedication", b =>
+                {
+                    b.HasOne("Contracts_and_Models.Models.Department", "department")
+                        .WithMany()
+                        .HasForeignKey("department_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("department");
                 });
 
             modelBuilder.Entity("Contracts_and_Models.Models.Item", b =>

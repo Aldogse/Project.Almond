@@ -9,7 +9,8 @@ namespace Contracts_and_Models.Responses
 {
 	public  class DepartmentDetailsResponse
 	{
-		public string department_name { get; set; }
+        public int department_id { get; set; }
+        public string department_name { get; set; }
 		public string? contact_person_email { get; set; }
 		public List<ItemDetailsResponse> items_in_possesion { get; set; }
 	}
